@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transactions_app/resources/resources.dart';
+import 'package:transactions_app/resources/strings_manager.dart';
 import 'package:transactions_app/utils/exentions.dart';
 
 class EmailField extends StatefulWidget {
@@ -33,7 +34,7 @@ class EmailFieldState extends State<EmailField> {
       cursorColor: AppColors.darkGreyText,
       textAlignVertical: TextAlignVertical.bottom,
       decoration: AppDecorations.textFieldDecoration.copyWith(
-        hintText: widget.hint ?? 'email Address',
+        hintText: widget.hint ?? StringsManager.email,
         prefixIcon: _messageIcon,
         errorMaxLines: 3,
       ),

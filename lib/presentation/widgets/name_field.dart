@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transactions_app/resources/resources.dart';
+import 'package:transactions_app/resources/strings_manager.dart';
 
 class NameField extends StatefulWidget {
   const NameField({
@@ -33,7 +34,7 @@ class NameFieldState extends State<NameField> {
           cursorColor: AppColors.darkGreyText,
           textAlignVertical: TextAlignVertical.bottom,
           decoration: AppDecorations.textFieldDecoration.copyWith(
-            hintText: 'your Name',
+            hintText: StringsManager.name,
             prefixIcon: _iconBuilder,
             errorMaxLines: 3,
           ),

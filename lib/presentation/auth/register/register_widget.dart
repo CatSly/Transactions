@@ -11,6 +11,7 @@ import 'package:transactions_app/presentation/widgets/password_field.dart';
 import 'package:transactions_app/presentation/widgets/socio_loading_overlay.dart';
 import 'package:transactions_app/presentation/widgets/transparent_button.dart';
 import 'package:transactions_app/resources/app_colors.dart';
+import 'package:transactions_app/resources/strings_manager.dart';
 import 'package:transactions_app/resources/styles_manager.dart';
 
 import 'bloc/register_cubit.dart';
@@ -53,13 +54,13 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
                   children: [
                     const SizedBox(height: 22),
                     Text(
-                      'welcome To Book',
+                      StringsManager.wellcome,
                       style: StylesManager.header5(AppColors.darkBlue, 30.17),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'sign Up To',
+                      StringsManager.signUp,
                       style: StylesManager.subtitle1(AppColors.darkBlue, 24),
                       textAlign: TextAlign.center,
                     ),
@@ -69,7 +70,7 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
                         _textFields(context),
                         const SizedBox(height: 16),
                         AppButton(
-                          title: 'sign Up'.toUpperCase(),
+                          title: StringsManager.signUp.toUpperCase(),
                           onPressed: () => _onRegisterPressed(context),
                         ),
                         const SizedBox(height: 32),
@@ -77,10 +78,10 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'already Have Account',
+                              StringsManager.already,
                               style: StylesManager.subtitle1(
                                 AppColors.darkBlue,
-                                24,
+                                30,
                               ),
                             ),
                             const SizedBox(width: 16),
@@ -89,9 +90,8 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
                                 AppColors.mainBlue,
                                 16,
                               ),
-                              title: 'sign In'.toUpperCase(),
-                              onPressed: () =>
-                                  context.pushRoute(const LoginPageRoute()),
+                              title: StringsManager.signIn.toUpperCase(),
+                              onPressed: () => context.pushRoute(const LoginPageRoute()),
                             ),
                           ],
                         ),
@@ -129,7 +129,7 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
             const SizedBox(height: 20),
             PasswordField(
               type: PassFieldType.regular,
-              hint: 'password',
+              hint: StringsManager.password,
               controller: _passwordController,
               validationEnabled: _passwordValidationEnabled,
               focus: _passwordFocus,
