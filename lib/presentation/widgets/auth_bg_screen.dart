@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/resources/resources.dart';
 
 class AuthBgScreen extends StatefulWidget {
   const AuthBgScreen({
     required this.child,
     this.backButton = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Widget child;
   final bool backButton;
 
@@ -32,8 +33,7 @@ class _AuthBgScreenState extends State<AuthBgScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (widget.backButton)
-                  SizedBox(height: 50, child: _backButton(context)),
+                if (widget.backButton) SizedBox(height: AppDimens.size52, child: _backButton(context)),
                 Expanded(child: widget.child)
               ],
             ),

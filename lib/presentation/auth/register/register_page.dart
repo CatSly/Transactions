@@ -8,7 +8,7 @@ import 'register_widget.dart';
 
 @RoutePage()
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
   static const routeName = "/register";
   @override
   Widget build(BuildContext context) {

@@ -5,8 +5,8 @@ class SocioLoadingOverlay extends StatelessWidget {
   const SocioLoadingOverlay({
     required this.child,
     required this.isLoading,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Widget child;
   final bool isLoading;
 

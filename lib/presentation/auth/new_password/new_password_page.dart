@@ -6,7 +6,7 @@ import 'bloc/new_password_cubit.dart';
 import 'new_password_widget.dart';
 
 class NewPasswordPage extends StatelessWidget {
-  const NewPasswordPage({Key? key}) : super(key: key);
+  const NewPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {

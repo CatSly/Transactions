@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transactions_app/app/routing/router.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/presentation/widgets/app_button.dart';
 import 'package:transactions_app/presentation/widgets/auth_bg_screen.dart';
 import 'package:transactions_app/presentation/widgets/email_field.dart';
@@ -17,7 +18,7 @@ import 'package:transactions_app/resources/styles_manager.dart';
 import 'bloc/register_cubit.dart';
 
 class RegisterWidget extends StatelessWidget with ToastMixin {
-  RegisterWidget({Key? key}) : super(key: key);
+  RegisterWidget({super.key});
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -48,32 +49,32 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
             onTap: () => FocusScope.of(context).unfocus(),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: const EdgeInsets.symmetric(horizontal: AppDimens.size18),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(height: 22),
+                    const SizedBox(height: AppDimens.size22),
                     Text(
                       StringsManager.wellcome,
-                      style: StylesManager.header5(AppColors.darkBlue, 30.17),
+                      style: StylesManager.header5(AppColors.darkBlue, AppDimens.size30),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: AppDimens.size16),
                     Text(
                       StringsManager.signUp,
-                      style: StylesManager.subtitle1(AppColors.darkBlue, 24),
+                      style: StylesManager.subtitle1(AppColors.darkBlue, AppDimens.size24),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: AppDimens.size24),
                     Column(
                       children: [
                         _textFields(context),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: AppDimens.size16),
                         AppButton(
                           title: StringsManager.signUp.toUpperCase(),
                           onPressed: () => _onRegisterPressed(context),
                         ),
-                        const SizedBox(height: 32),
+                        const SizedBox(height: AppDimens.size32),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -84,11 +85,11 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
                                 30,
                               ),
                             ),
-                            const SizedBox(width: 16),
+                            const SizedBox(width: AppDimens.size16),
                             TransparentButton(
                               style: StylesManager.subtitle2(
-                                AppColors.mainBlue,
-                                16,
+                                AppColors.barsDark,
+                                AppDimens.size16,
                               ),
                               title: StringsManager.signIn.toUpperCase(),
                               onPressed: () => context.pushRoute(const LoginPageRoute()),
@@ -118,7 +119,7 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
                 _emailFocus.requestFocus();
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppDimens.size20),
             EmailField(
               controller: _emailController,
               validationEnabled: _emailValidationEnabled,
@@ -126,7 +127,7 @@ class RegisterWidget extends StatelessWidget with ToastMixin {
                 _passwordFocus.requestFocus();
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppDimens.size20),
             PasswordField(
               type: PassFieldType.regular,
               hint: StringsManager.password,

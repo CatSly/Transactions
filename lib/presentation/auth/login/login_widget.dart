@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transactions_app/app/routing/router.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/presentation/widgets/app_button.dart';
 import 'package:transactions_app/presentation/widgets/auth_bg_screen.dart';
 import 'package:transactions_app/presentation/widgets/email_field.dart';
@@ -14,10 +15,9 @@ import 'package:transactions_app/resources/resources.dart';
 import 'bloc/login_cubit.dart';
 
 class LoginWidget extends StatelessWidget with ToastMixin {
-  LoginWidget({Key? key}) : super(key: key);
+  LoginWidget({super.key});
 
-  final _emailController =
-      TextEditingController(text: 'yevhenivanov@gmail.com');
+  final _emailController = TextEditingController(text: 'yevhenivanov@gmail.com');
   final _passwordController = TextEditingController(text: '#,Z/q2*FPrxv5fG');
 
   final _emailValidationEnabled = ValueNotifier(false);
@@ -43,21 +43,21 @@ class LoginWidget extends StatelessWidget with ToastMixin {
             behavior: HitTestBehavior.opaque,
             onTap: () => FocusScope.of(context).unfocus(),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
+              padding: const EdgeInsets.symmetric(horizontal: AppDimens.size18),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(height: 22),
+                  const SizedBox(height: AppDimens.size22),
                   Text(
                     'WelcomeBack',
-                    style: StylesManager.header5(AppColors.darkBlue, 30.17),
+                    style: StylesManager.header5(AppColors.darkBlue, AppDimens.size30),
                     textAlign: TextAlign.center,
                   ),
                   const Spacer(flex: 50),
                   Column(
                     children: [
                       _textFields(context),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: AppDimens.size16),
                       AppButton(
                         title: 'signIn'.toUpperCase(),
                         onPressed: () => _onLoginPressed(context),
@@ -67,8 +67,7 @@ class LoginWidget extends StatelessWidget with ToastMixin {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           TransparentButton(
-                            style:
-                                StylesManager.subtitle2(AppColors.mainBlue, 16),
+                            style: StylesManager.subtitle2(AppColors.mainBlue, AppDimens.size16),
                             title: 'signUp'.toUpperCase(),
                             onPressed: () => context.popRoute(),
                           ),
@@ -95,14 +94,13 @@ class LoginWidget extends StatelessWidget with ToastMixin {
               validationEnabled: _emailValidationEnabled,
               onFieldSubmitted: (v) => _passwordFocus.requestFocus(),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppDimens.size20),
             PasswordField(
               hint: 'password',
               controller: _passwordController,
               validationEnabled: _passwordValidationEnabled,
               focus: _passwordFocus,
-              onFieldSubmitted: (v) =>
-                  FocusScope.of(context).requestFocus(FocusNode()),
+              onFieldSubmitted: (v) => FocusScope.of(context).requestFocus(FocusNode()),
             ),
           ],
         ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 
 class ImageButton extends StatelessWidget {
   const ImageButton({
-    Key? key,
     required this.iconFunction,
     required this.imagePath,
-  }) : super(key: key);
+    super.key,
+  });
   final VoidCallback iconFunction;
   final String imagePath;
 
@@ -13,7 +14,7 @@ class ImageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: Image.asset(imagePath),
-      iconSize: 80,
+      iconSize: AppDimens.size80,
       onPressed: iconFunction,
     );
   }

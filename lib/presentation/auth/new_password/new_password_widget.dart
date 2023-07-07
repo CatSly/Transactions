@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/presentation/widgets/app_button.dart';
 import 'package:transactions_app/presentation/widgets/auth_bg_screen.dart';
 import 'package:transactions_app/presentation/widgets/email_field.dart';
@@ -12,7 +13,7 @@ import 'package:transactions_app/resources/styles_manager.dart';
 import 'bloc/new_password_cubit.dart';
 
 class NewPasswordWidget extends StatelessWidget with ToastMixin {
-  NewPasswordWidget({Key? key}) : super(key: key);
+  NewPasswordWidget({super.key});
 
   final _emailController = TextEditingController(
     text:
@@ -24,9 +25,6 @@ class NewPasswordWidget extends StatelessWidget with ToastMixin {
         // kDebugMode ? DebugConst.password :
         '',
   );
-
-  // final _emailController = TextEditingController();
-  // final _passwordController = TextEditingController();
   final _emailValidationEnabled = ValueNotifier(false);
   final _passwordValidationEnabled = ValueNotifier(false);
   final GlobalKey<FormState> _formKey = GlobalKey();
@@ -46,27 +44,27 @@ class NewPasswordWidget extends StatelessWidget with ToastMixin {
             behavior: HitTestBehavior.opaque,
             onTap: () => FocusScope.of(context).unfocus(),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
+              padding: const EdgeInsets.symmetric(horizontal: AppDimens.size18),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 20),
+                  const SizedBox(height: AppDimens.size20),
                   Text(
                     'create New Password',
-                    style: StylesManager.header5(AppColors.darkBlue, 30.17),
+                    style: StylesManager.header5(AppColors.darkBlue, AppDimens.size30),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppDimens.size16),
                   Text(
                     'for Completing Password',
-                    style: StylesManager.subtitle1(AppColors.darkBlue, 24),
+                    style: StylesManager.subtitle1(AppColors.darkBlue, AppDimens.size24),
                     textAlign: TextAlign.center,
                   ),
                   Column(
                     children: [
-                      const SizedBox(height: 30),
+                      const SizedBox(height: AppDimens.size30),
                       _textFields(context),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: AppDimens.size16),
                       AppButton(
                         title: 'apply New Password'.toUpperCase(),
                         onPressed: () => _onLoginPressed(context),
@@ -92,7 +90,7 @@ class NewPasswordWidget extends StatelessWidget with ToastMixin {
               validationEnabled: _emailValidationEnabled,
               onFieldSubmitted: (v) => _passwordFocus.requestFocus(),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppDimens.size20),
             PasswordField(
               hint: 'confirm New Password',
               controller: _passwordController,

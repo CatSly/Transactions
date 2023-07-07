@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/resources/resources.dart';
 import 'package:transactions_app/resources/strings_manager.dart';
 import 'package:transactions_app/utils/exentions.dart';
@@ -10,8 +11,8 @@ class EmailField extends StatefulWidget {
     required this.validationEnabled,
     this.onFieldSubmitted,
     this.focus,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final TextEditingController controller;
   final String? hint;
   final ValueNotifier<bool> validationEnabled;
@@ -26,7 +27,6 @@ class EmailFieldState extends State<EmailField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLines: null,
       textInputAction: TextInputAction.next,
       focusNode: widget.focus,
       autovalidateMode: AutovalidateMode.always,
@@ -52,7 +52,7 @@ class EmailFieldState extends State<EmailField> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 20,
+            height: AppDimens.size20,
             child: ImageIcon(
               AssetImage(ImagesPaths.message),
               color: AppColors.lightGreyText,

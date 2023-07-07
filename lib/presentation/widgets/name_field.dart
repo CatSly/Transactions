@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/resources/resources.dart';
 import 'package:transactions_app/resources/strings_manager.dart';
 
@@ -8,8 +9,8 @@ class NameField extends StatefulWidget {
     required this.validationEnabled,
     this.onFieldSubmitted,
     this.focus,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final TextEditingController controller;
   final ValueNotifier<bool> validationEnabled;
   final ValueChanged<String>? onFieldSubmitted;
@@ -54,7 +55,7 @@ class NameFieldState extends State<NameField> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 24,
+            height: AppDimens.size24,
             child: ImageIcon(
               AssetImage(ImagesPaths.accountBox),
               color: AppColors.lightGreyText,

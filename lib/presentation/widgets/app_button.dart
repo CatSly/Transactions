@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/resources/resources.dart';
 
 enum ButtonType { white, darkBlue }
@@ -11,8 +12,8 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     this.type = ButtonType.darkBlue,
     this.buttonHeight = 48,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final bool hasImage;
   final String title;
   final String imagePath;
@@ -26,12 +27,10 @@ class AppButton extends StatelessWidget {
       style: ButtonStyle(
         overlayColor: _overlayColor,
         elevation: MaterialStateProperty.all<double>(0),
-        minimumSize:
-            MaterialStateProperty.all<Size>(const Size(double.infinity, 40)),
-        backgroundColor:
-            MaterialStateProperty.all<Color>(_color.withOpacity(1)),
+        minimumSize: MaterialStateProperty.all<Size>(const Size(double.infinity, AppDimens.size40)),
+        backgroundColor: MaterialStateProperty.all<Color>(_color.withOpacity(1)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimens.size4)),
         ),
       ),
       onPressed: onPressed,
@@ -40,10 +39,10 @@ class AppButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 18,
+                  height: AppDimens.size18,
                   child: Image(image: AssetImage(imagePath)),
                 ),
-                const SizedBox(width: 24),
+                const SizedBox(width: AppDimens.size24),
                 Text(title, style: _style),
               ],
             )
@@ -74,9 +73,9 @@ class AppButton extends StatelessWidget {
   TextStyle get _style {
     switch (type) {
       case ButtonType.white:
-        return StylesManager.subtitle2Roboto(AppColors.darkBlue, 16);
+        return StylesManager.subtitle2Roboto(AppColors.darkBlue, AppDimens.size16);
       case ButtonType.darkBlue:
-        return StylesManager.subtitle2(AppColors.white, 16);
+        return StylesManager.subtitle2(AppColors.white, AppDimens.size16);
     }
   }
 }

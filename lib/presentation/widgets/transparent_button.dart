@@ -8,8 +8,8 @@ class TransparentButton extends StatelessWidget {
     required this.style,
     this.hasBorder = false,
     this.buttonColor,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String title;
   final VoidCallback? onPressed;
   final TextStyle? style;
@@ -22,9 +22,7 @@ class TransparentButton extends StatelessWidget {
       color: buttonColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
-        side: hasBorder == true
-            ? const BorderSide(color: AppColors.mainBlue)
-            : BorderSide.none,
+        side: hasBorder == true ? const BorderSide(color: AppColors.mainBlue) : BorderSide.none,
       ),
       padding: const EdgeInsets.all(4),
       onPressed: onPressed,

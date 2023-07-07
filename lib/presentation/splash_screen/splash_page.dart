@@ -8,7 +8,7 @@ import 'splash_widget.dart';
 
 @RoutePage()
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
   static const routeName = "/splash";
   @override
   Widget build(BuildContext context) {

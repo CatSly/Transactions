@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transactions_app/common/app_dimens.dart';
 import 'package:transactions_app/resources/resources.dart';
 
 enum PassFieldType { regular, create, confirm }
@@ -12,8 +13,8 @@ class PasswordField extends StatefulWidget {
     required this.hint,
     this.focus,
     this.matchingPassController,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final TextEditingController controller;
   final TextEditingController? matchingPassController;
   final ValueNotifier<bool> validationEnabled;
@@ -58,7 +59,7 @@ class PasswordFieldState extends State<PasswordField> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 24,
+            height: AppDimens.size24,
             child: ImageIcon(
               AssetImage(ImagesPaths.lock),
               color: AppColors.lightGreyText,
@@ -75,8 +76,7 @@ class PasswordFieldState extends State<PasswordField> {
         return 'required Field';
       } else if (value.length < 8) {
         return 'the Password Needs';
-      } else if (widget.type == PassFieldType.confirm &&
-          widget.matchingPassController != null) {
+      } else if (widget.type == PassFieldType.confirm && widget.matchingPassController != null) {
         if (widget.matchingPassController!.text != widget.controller.text) {
           return 'passwords Mismatch';
         } else {
